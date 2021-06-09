@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo docker build . -t broken-driver
+docker build . -t broken-driver
