@@ -22,3 +22,6 @@ COPY main.cpp /main.cpp
 
 # Compile the code
 RUN g++ main.cpp -o broken -std=c++17 -lcassandra -lpthread -g -fsanitize=undefined,address -Wall -Wshadow
+
+# Use this for a release build
+# RUN g++ main.cpp -o broken -std=c++17 -lcassandra -lpthread -O3 -flto -Wall -Wshadow
