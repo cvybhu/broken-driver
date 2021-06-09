@@ -3,6 +3,11 @@ Broken scylla cpp driver
 
 This repository contains a minimal example where scylla cpp driver breaks
 
+# What it does
+* Connect to a single scylla node, set io threads to the number of cpus available
+* Start 64 threads, each thread does a simple select 1024 times
+* The driver breaks
+
 # To run the example:
 ### Build the example inside a docker container:
 ```bash
