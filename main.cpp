@@ -51,8 +51,8 @@ void make_simple_request(CassSession* session) {
 
     assert_future_ok(query_future, "Simple request failed");
 
-    cass_future_free(query_future);
     cass_statement_free(statement);
+    cass_future_free(query_future);
 }
 
 int main() {
@@ -60,10 +60,10 @@ int main() {
 
     std::vector<std::thread> threads;
 
-    for (int t = 0; t < 16; t++) {
+    for (int t = 0; t < 64; t++) {
         threads.push_back(std::thread(
             [session]() {
-                for (int i = 0; i < 256; i++) {
+                for (int i = 0; i < 1024; i++) {
                     make_simple_request(session);
                 }
             }
